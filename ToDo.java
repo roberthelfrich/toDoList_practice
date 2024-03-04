@@ -1,15 +1,16 @@
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 /**
- * This class implements ToDo's that can which can be stored in an instance of the ToDoList class
+ * This class implements ToDo's which can be stored in an instance of the ToDoList class
  */
 public class ToDo {
 
 public boolean _isDone; 
 public String _category; 
-public String _priority;
+public String _priority; 
 public LocalDate _deadline; 
-public String _name;
+public String _name; 
+//public int _position;
 
 /**
  * First construcor
@@ -21,18 +22,10 @@ public String _name;
 public ToDo(String task, String category, String priority)
 {
     this.setTask(task);
-    setCategory(category);
-
-    if (isValidPriority(priority))
-    {
-        setPriority(priority);
-    }
-    else 
-    {
-        _priority = null;
-        System.out.println("Choose a priority of 1 (low), 2 (medium) or 3 (high)!");
-    }
+    this.setCategory(category);
+    this.setPriority(priority);
 }
+
 /**
  * Second constructor with deadline parameter 
  * @param task
@@ -55,10 +48,17 @@ public ToDo(String task)
     setTask(task);
 }
 
-
+/**
+ * Method to provide a String representation for the ToDo class
+ */
 public String toString()
 {
     return ""+ _name + " (" + getPriority() + " priority)";
+}
+
+public boolean getStatus()
+{
+    return this._isDone;
 }
 
 /**
@@ -90,10 +90,11 @@ public void setPriority(String priority)
     if (isValidPriority(priority))
     {
         _priority = priority.toLowerCase();
+        System.out.println("The task '" + this._name + "' now has the priority: " + this._priority);
     }
     else
     {
-        System.out.println("Invalid priotiy! \n Valid prioties: \n low \n medium \n high \n Prioity was set to null!");
+        System.out.println("Invalid! Choose one of the following: \n 'low' \n 'medium' \n 'high' \n Prioity was set to null!");
     }
 }
 

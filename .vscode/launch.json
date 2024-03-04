@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "ToDoList",
+            "request": "launch",
+            "mainClass": "ToDoList",
+            "projectName": "ToDoListProject_30ac0f02"
+        },
+        {
+            "type": "java",
             "name": "Current File",
             "request": "launch",
             "mainClass": "${file}"
